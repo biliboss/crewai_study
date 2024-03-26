@@ -1,0 +1,33 @@
+fetch_emails:
+  description: >
+    **Task**: Fetch emails from the email server.
+    
+    **Restrictions**
+    - Return only 10 e-mails.
+    - Use only tool `search_gmail`.
+    
+    **Tools**
+    - search_gmail: use to fetch e-mails.
+      - call with:
+        - query='is:unread'
+        - format='metadata'
+        - metadataHeaders=['From', 'Subject']
+  expected_output: |
+    A JSON object containing the fetched emails:
+    
+    **Sample JSON Output** 
+    
+    {{
+        "emails": [
+            {{
+                "subject": "<subject>",
+                "from": "<from e-mail>"
+            }}
+        ]
+    }}
+
+evaluate_spam:
+  description: >
+    **Task**: Evaluate the score of an email regarding this importance.
+  expected_output: |
+    A score from 0 to 100 indicating the importance score of the email.

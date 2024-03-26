@@ -1,0 +1,5 @@
+sum_two_numbers:
+  description: >
+    Sum two numbers together {n1} and {n2}
+  expected_output: >
+    The sum of the two numbers

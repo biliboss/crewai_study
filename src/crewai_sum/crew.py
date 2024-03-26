@@ -1,47 +1,31 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from langchain_community.agent_toolkits.gmail.toolkit import GmailToolkit
-from langchain_community.tools.gmail import get_gmail_credentials
-from langchain_community.tools.gmail.utils import build_resource_service
 
 # Uncomment the following line to use an example of a custom tool
 # from crewai_study.tools.custom_tool import MyCustomTool
 
+# Check our tools documentations for more information on how to use them
+# from crewai_tools import SerperDevTool
 
 @CrewBase
-class CrewaiStudyCrew():
+class CrewaiSumCrew():
 	"""CrewaiStudy crew"""
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
 
 	@agent
-	def researcher(self) -> Agent:
+	def mathematician(self) -> Agent:
 		return Agent(
-			config=self.agents_config['researcher'],
+			config=self.agents_config['mathematician'],
 			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
 			verbose=True
 		)
 
-	@agent
-	def reporting_analyst(self) -> Agent:
-		return Agent(
-			config=self.agents_config['reporting_analyst'],
-			verbose=True
-		)
-
 	@task
-	def research_task(self) -> Task:
+	def sum_two_numbers(self) -> Task:
 		return Task(
-			config=self.tasks_config['research_task'],
-			agent=self.researcher()
-		)
-
-	@task
-	def reporting_task(self) -> Task:
-		return Task(
-			config=self.tasks_config['reporting_task'],
-			agent=self.reporting_analyst(),
-			output_file='report.md'
+			config=self.tasks_config['sum_two_numbers'],
+			agent=self.mathematician()
 		)
 
 	@crew

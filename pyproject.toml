@@ -7,9 +7,13 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
 crewai = {extras = ["tools"], version = "^0.22.2"}
+google-auth-oauthlib = "^1.2.0"
+google-api-python-client = "^2.123.0"
 
 [tool.poetry.scripts]
 crewai_study = "crewai_study.main:run"
+crewai_sum = "crewai_sum.main:run"
+crewai_read_email = "crewai_read_email.main:run"
 
 [build-system]
 requires = ["poetry-core"]
