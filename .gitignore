@@ -132,3 +132,5 @@ dmypy.json
 # PyCharm specific settings
 .idea/
 *.iml
+/src/crewai_read_email/token.json
+/src/crewai_read_email/gmail_client_secret.json

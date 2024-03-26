@@ -17,7 +17,7 @@ from crewai_read_email.tools.custom_gmail_search_tool import CustomGmailSearch
 credentials = get_gmail_credentials(
     token_file="token.json",
     scopes=["https://mail.google.com/"],
-    client_secrets_file="client_secret_1025501660376-7m6l0qa7ri2cqqlcstg1ehrqunanref2.apps.googleusercontent.com.json",
+    client_secrets_file="gmail_client_secret.json",
 )
 api_resource = build_resource_service(credentials=credentials)
 custom_gmail_search_tool = CustomGmailSearch(api_resource=api_resource)
